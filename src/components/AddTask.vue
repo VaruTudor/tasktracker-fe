@@ -12,7 +12,7 @@ const addTask = async () => {
   if (!title.value.trim()) return
   
   try {
-    await axios.post('http://0.0.0.0:8080/api/tasks', {
+    await axios.post('http://localhost:8080/api/tasks', {
       title: title.value,
       description: description.value,
       completed: false
