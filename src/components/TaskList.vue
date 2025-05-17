@@ -4,6 +4,42 @@ import { ref, onMounted } from 'vue'
 import axios from 'axios'
 
 const tasks = ref([])
+const editingTask = ref(null)
+const editTitle = ref('')
+const editDescription = ref('')
+
+const startEditing = (task) => {
+  editingTask.value = task.id
+  editTitle.value = task.title
+  editDescription.value = task.description
+}
+
+const updateTask = async (task) => {
+  try {
+    await axios.put(`http://localhost:8080/api/tasks/${task.id}`, {
+      ...task,
+      title: editTitle.value,
+      description: editDescription.value
+    })
+    
+    const taskIndex = tasks.value.findIndex(t => t.id === task.id)
+    if (taskIndex !== -1) {
+      tasks.value[taskIndex] = {
+        ...task,
+        title: editTitle.value,
+        description: editDescription.value
+      }
+    }
+    
+    editingTask.value = null
+  } catch (error) {
+    console.error('Error updating task:', error)
+  }
+}
+
+const cancelEditing = () => {
+  editingTask.value = null
+}
 
 const fetchTasks = async () => {
   try {
@@ -55,14 +91,35 @@ defineExpose({
             >
             <span class="checkmark"></span>
           </label>
-          <div :class="{ 'task-text': true, completed: task.completed }">
+          <div v-if="editingTask === task.id" class="edit-form">
+            <input 
+              v-model="editTitle" 
+              class="ios-input"
+              placeholder="Task title"
+            >
+            <textarea 
+              v-model="editDescription" 
+              class="ios-input"
+              placeholder="Task description"
+            ></textarea>
+            <div class="edit-buttons">
+              <button @click="updateTask(task)" class="save-btn">Save</button>
+              <button @click="cancelEditing" class="cancel-btn">Cancel</button>
+            </div>
+          </div>
+          <div v-else :class="{ 'task-text': true, completed: task.completed }">
             <h3>{{ task.title }}</h3>
             <p>{{ task.description }}</p>
           </div>
         </div>
-        <button @click="deleteTask(task.id)" class="delete-btn">
-          Delete
-        </button>
+        <div class="action-buttons">
+          <button v-if="!editingTask" @click="startEditing(task)" class="edit-btn">
+            Edit
+          </button>
+          <button @click="deleteTask(task.id)" class="delete-btn">
+            Delete
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -181,6 +238,68 @@ defineExpose({
 
 .delete-btn:hover {
   background: #dc352b;
+}
+
+.edit-btn {
+  background: #007AFF;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 8px;
+}
+
+.edit-btn:hover {
+  background: #0066d6;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.edit-form .ios-input {
+  font-size: 0.9rem;
+  padding: 8px;
+}
+
+.edit-form textarea.ios-input {
+  min-height: 60px;
+}
+
+.edit-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.save-btn {
+  background: #34C759;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: #8E8E93;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
 }
 
 /* Custom scrollbar */
