@@ -23,19 +23,18 @@ const refreshTasks = () => {
 main {
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 1rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 h1 {
   text-align: center;
-  color: #000;
+  color: #fff;
   font-weight: 600;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
-body {
-  background: #f2f2f7;
-  min-height: 100vh;
+  font-size: 1.5rem;
+  margin: 0;
 }
 </style>

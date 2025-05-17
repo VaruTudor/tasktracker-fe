@@ -50,7 +50,7 @@ const addTask = async () => {
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 1rem;
   background: rgba(30, 30, 32, 0.8);
   backdrop-filter: blur(20px);
   border-radius: 16px;

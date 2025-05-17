@@ -134,7 +134,7 @@ defineExpose({
 }
 
 .task-list {
-  max-height: 60vh;
+  flex: 1;
   overflow-y: auto;
   padding: 0.5rem;
   border-radius: 16px;
