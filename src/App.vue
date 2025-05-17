@@ -13,7 +13,7 @@ const refreshTasks = () => {
 
 <template>
   <main>
-    <h1>Tasks</h1>
+    <h1>Tasktracker</h1>
     <AddTask @taskAdded="refreshTasks" />
     <TaskList ref="taskListRef" />
   </main>

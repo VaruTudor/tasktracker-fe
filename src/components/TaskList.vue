@@ -146,7 +146,6 @@ body {
   width: 100%;
   max-width: 500px;
   margin: 1rem auto;
-  padding: 0 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -178,6 +177,10 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
   max-width: 500px;
   width: 100%;
+}
+
+.task-text {
+  padding: 0 8px;
 }
 
 .task-content {
@@ -296,6 +299,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  padding: 0 8px;
 }
 
 .ios-input {
