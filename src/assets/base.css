@@ -61,11 +61,11 @@
 
 body {
   min-height: 100vh;
-  color: #ffffff;
-  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-  transition: color 0.5s, background-color 0.5s;
+  color: #FFFFFF;
+  background: #1C1C1E;
+  transition: all 0.3s ease;
   line-height: 1.6;
-  font-family: -apple-system, SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", "Segoe UI", sans-serif;
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

@@ -1,4 +1,3 @@
-
 <script setup>
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
@@ -21,7 +20,7 @@ const updateTask = async (task) => {
       title: editTitle.value,
       description: editDescription.value
     })
-    
+
     const taskIndex = tasks.value.findIndex(t => t.id === task.id)
     if (taskIndex !== -1) {
       tasks.value[taskIndex] = {
@@ -30,7 +29,7 @@ const updateTask = async (task) => {
         description: editDescription.value
       }
     }
-    
+
     editingTask.value = null
   } catch (error) {
     console.error('Error updating task:', error)
@@ -137,10 +136,11 @@ defineExpose({
   flex: 1;
   overflow-y: auto;
   padding: 0.5rem;
-  border-radius: 16px;
-  background: rgba(30, 30, 32, 0.8);
-  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .task-card {
@@ -149,10 +149,11 @@ defineExpose({
   align-items: center;
   padding: 1rem;
   margin: 0.75rem 0;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  background: #2C2C2E;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .task-content {
@@ -166,19 +167,19 @@ defineExpose({
   margin: 0;
   font-size: 1rem;
   font-weight: 500;
-  color: #000;
+  color: #FFFFFF;
 }
 
 .task-text p {
   margin: 0.25rem 0 0;
   font-size: 0.9rem;
-  color: #666;
+  color: rgba(235, 235, 245, 0.6);
 }
 
 .completed h3,
 .completed p {
   text-decoration: line-through;
-  color: #999;
+  color: rgba(235, 235, 245, 0.4);
 }
 
 .ios-checkbox {
@@ -230,23 +231,23 @@ defineExpose({
   background: #FF3B30;
   color: white;
   border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
+  padding: 12px 20px;
+  border-radius: 12px;
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .delete-btn:hover {
-  background: #dc352b;
+  background: #E63229;
 }
 
 .edit-btn {
-  background: #007AFF;
+  background: #0A84FF;
   color: white;
   border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
+  padding: 12px 20px;
+  border-radius: 12px;
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -254,7 +255,7 @@ defineExpose({
 }
 
 .edit-btn:hover {
-  background: #0066d6;
+  background: #0766d9;
 }
 
 .action-buttons {
@@ -317,3 +318,4 @@ defineExpose({
   border-radius: 4px;
 }
 </style>
+```

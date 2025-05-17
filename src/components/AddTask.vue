@@ -50,11 +50,12 @@ const addTask = async () => {
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
-  padding: 1rem;
-  background: rgba(30, 30, 32, 0.8);
-  backdrop-filter: blur(20px);
-  border-radius: 16px;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 form {
@@ -67,15 +68,20 @@ form {
   width: 100%;
   padding: 12px 16px;
   border: none;
-  border-radius: 10px;
-  background: rgba(142, 142, 147, 0.12);
+  border-radius: 12px;
+  background: #2C2C2E;
+  color: #FFFFFF;
   font-size: 16px;
   transition: all 0.3s ease;
 }
 
+.ios-input::placeholder {
+  color: rgba(235, 235, 245, 0.6);
+}
+
 .ios-input:focus {
   outline: none;
-  background: rgba(142, 142, 147, 0.18);
+  background: #3C3C3E;
 }
 
 textarea.ios-input {
@@ -84,11 +90,11 @@ textarea.ios-input {
 }
 
 .ios-button {
-  background: #007AFF;
+  background: #0A84FF;
   color: white;
   border: none;
-  padding: 12px;
-  border-radius: 10px;
+  padding: 12px 20px;
+  border-radius: 12px;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
@@ -96,7 +102,7 @@ textarea.ios-input {
 }
 
 .ios-button:hover {
-  background: #0066d6;
+  background: #0071E3;
 }
 
 .ios-button:active {
