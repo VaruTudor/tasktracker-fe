@@ -129,7 +129,7 @@ defineExpose({
 .container {
   width: 100%;
   max-width: 500px;
-  margin: 2rem auto;
+  margin: 1rem auto;
   padding: 0 1rem;
 }
 
@@ -138,8 +138,9 @@ defineExpose({
   overflow-y: auto;
   padding: 0.5rem;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
+  background: rgba(30, 30, 32, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .task-card {

@@ -51,9 +51,10 @@ const addTask = async () => {
   max-width: 500px;
   margin: 0 auto;
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
+  background: rgba(30, 30, 32, 0.8);
+  backdrop-filter: blur(20px);
   border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 form {
