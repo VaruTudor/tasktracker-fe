@@ -12,7 +12,7 @@ const addTask = async () => {
   if (!title.value.trim()) return
   
   try {
-    await axios.post('http://localhost:8080/api/tasks', {
+    const response = await axios.post('http://localhost:8080/api/tasks', {
       title: title.value,
       description: description.value,
       completed: false
@@ -28,19 +28,32 @@ const addTask = async () => {
 
 <template>
   <div class="add-task">
-    <h2>Add New Task</h2>
     <form @submit.prevent="addTask">
-      <input v-model="title" placeholder="Task title" required>
-      <textarea v-model="description" placeholder="Task description"></textarea>
-      <button type="submit">Add Task</button>
+      <input 
+        v-model="title" 
+        placeholder="Task title" 
+        required
+        class="ios-input"
+      >
+      <textarea 
+        v-model="description" 
+        placeholder="Task description"
+        class="ios-input"
+      ></textarea>
+      <button type="submit" class="ios-button">Add Task</button>
     </form>
   </div>
 </template>
 
 <style scoped>
 .add-task {
-  max-width: 600px;
-  margin: 2rem auto;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
 }
 
 form {
@@ -49,18 +62,44 @@ form {
   gap: 1rem;
 }
 
-input, textarea {
-  padding: 0.5rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+.ios-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(142, 142, 147, 0.12);
+  font-size: 16px;
+  transition: all 0.3s ease;
 }
 
-button {
-  background-color: #4CAF50;
+.ios-input:focus {
+  outline: none;
+  background: rgba(142, 142, 147, 0.18);
+}
+
+textarea.ios-input {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.ios-button {
+  background: #007AFF;
   color: white;
   border: none;
-  padding: 0.5rem;
-  border-radius: 4px;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ios-button:hover {
+  background: #0066d6;
+}
+
+.ios-button:active {
+  transform: scale(0.98);
 }
 </style>
+</script>

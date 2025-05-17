@@ -1,3 +1,4 @@
+
 <script setup>
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
@@ -39,88 +40,77 @@ onMounted(fetchTasks)
 
 <template>
   <div class="container">
-    <h2>📋 Task List</h2>
-    <div v-for="task in tasks" :key="task.id" class="task-card">
-      <div class="task-content">
-        <input type="checkbox" :checked="task.completed" @change="toggleComplete(task)" />
-        <div :class="{ completed: task.completed }">
-          <h3>{{ task.title }}</h3>
-          <p>{{ task.description }}</p>
+    <div class="task-list">
+      <div v-for="task in tasks" :key="task.id" class="task-card">
+        <div class="task-content">
+          <label class="ios-checkbox">
+            <input 
+              type="checkbox" 
+              :checked="task.completed" 
+              @change="toggleComplete(task)"
+            >
+            <span class="checkmark"></span>
+          </label>
+          <div :class="{ 'task-text': true, completed: task.completed }">
+            <h3>{{ task.title }}</h3>
+            <p>{{ task.description }}</p>
+          </div>
         </div>
+        <button @click="deleteTask(task.id)" class="delete-btn">
+          Delete
+        </button>
       </div>
-      <button @click="deleteTask(task.id)" class="delete-btn">✕</button>
     </div>
   </div>
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-}
-
 .container {
-  max-width: 600px;
+  width: 100%;
+  max-width: 500px;
   margin: 2rem auto;
-  padding: 1rem;
-  background: linear-gradient(145deg, #f0f0f0, #e0e0e0);
-  border-radius: 20px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  padding: 0 1rem;
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-  font-weight: 600;
-  color: #333;
+.task-list {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: 0.5rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
 }
 
 .task-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(145deg, #ffffff, #f5f5f5);
   padding: 1rem;
   margin: 0.75rem 0;
-  border-radius: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
-}
-
-.task-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .task-content {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
   flex: 1;
 }
 
-.task-content input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  accent-color: #007aff; /* iOS blue */
-}
-
-.task-content h3 {
+.task-text h3 {
   margin: 0;
   font-size: 1rem;
-  font-weight: 600;
-  color: #222;
+  font-weight: 500;
+  color: #000;
 }
 
-.task-content p {
-  margin: 0;
+.task-text p {
+  margin: 0.25rem 0 0;
   font-size: 0.9rem;
-  color: #555;
+  color: #666;
 }
 
 .completed h3,
@@ -129,18 +119,77 @@ h2 {
   color: #999;
 }
 
+.ios-checkbox {
+  position: relative;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+}
+
+.ios-checkbox input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  background: #eee;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.ios-checkbox input:checked ~ .checkmark {
+  background: #007AFF;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 8px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.ios-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
 .delete-btn {
-  background: #ff3b30;
+  background: #FF3B30;
   color: white;
   border: none;
-  font-size: 1.2rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
 }
 
 .delete-btn:hover {
-  background: #e02922;
+  background: #dc352b;
+}
+
+/* Custom scrollbar */
+.task-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.task-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
 }
 </style>
