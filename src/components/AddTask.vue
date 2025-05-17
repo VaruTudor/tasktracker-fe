@@ -52,7 +52,7 @@ const addTask = async () => {
   margin: 0 auto;
   padding: 1.5rem;
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -61,18 +61,20 @@ const addTask = async () => {
 form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .ios-input {
   width: 100%;
   padding: 12px 16px;
-  border: none;
-  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
   background: #2C2C2E;
   color: #FFFFFF;
   font-size: 16px;
-  transition: all 0.3s ease;
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", sans-serif;
+  transition: all 0.2s ease-in-out;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .ios-input::placeholder {

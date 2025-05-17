@@ -21,20 +21,21 @@ const refreshTasks = () => {
 
 <style>
 main {
-  max-width: 800px;
+  max-width: 500px;
   margin: 0 auto;
   padding: 1rem;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 h1 {
   text-align: center;
   color: #fff;
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", sans-serif;
 }
 </style>

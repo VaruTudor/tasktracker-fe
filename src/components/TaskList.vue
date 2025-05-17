@@ -130,30 +130,37 @@ defineExpose({
   max-width: 500px;
   margin: 1rem auto;
   padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .task-list {
   flex: 1;
   overflow-y: auto;
-  padding: 0.5rem;
+  padding: 0.75rem;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 100%;
 }
 
 .task-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 16px;
   margin: 0.75rem 0;
   background: #2C2C2E;
   border-radius: 16px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 500px;
+  width: 100%;
 }
 
 .task-content {
@@ -270,9 +277,22 @@ defineExpose({
   gap: 8px;
 }
 
-.edit-form .ios-input {
-  font-size: 0.9rem;
-  padding: 8px;
+.ios-input {
+  font-size: 16px;
+  padding: 12px 16px;
+  background: #3C3C3E;
+  color: #FFFFFF;
+  border-radius: 16px;
+  border: none;
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", sans-serif;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s ease-in-out;
+}
+
+.ios-input:focus {
+  outline: none;
+  border-color: #0A84FF;
+  box-shadow: 0 0 6px rgba(10, 132, 255, 0.5);
 }
 
 .edit-form textarea.ios-input {
@@ -285,23 +305,25 @@ defineExpose({
 }
 
 .save-btn {
-  background: #34C759;
+  background: #30D158;
   color: white;
   border: none;
-  padding: 6px 12px;
-  border-radius: 8px;
+  padding: 8px 16px;
+  border-radius: 12px;
   font-size: 0.9rem;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .cancel-btn {
   background: #8E8E93;
   color: white;
   border: none;
-  padding: 6px 12px;
-  border-radius: 8px;
+  padding: 8px 16px;
+  border-radius: 12px;
   font-size: 0.9rem;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 /* Custom scrollbar */
@@ -318,4 +340,3 @@ defineExpose({
   border-radius: 4px;
 }
 </style>
-```
