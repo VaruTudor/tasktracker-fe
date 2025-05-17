@@ -1,14 +1,21 @@
 
 <script setup>
+import { ref } from 'vue'
 import TaskList from './components/TaskList.vue'
 import AddTask from './components/AddTask.vue'
+
+const taskListRef = ref(null)
+
+const refreshTasks = () => {
+  taskListRef.value?.fetchTasks()
+}
 </script>
 
 <template>
   <main>
     <h1>Tasks</h1>
-    <AddTask @taskAdded="$refs.taskList.fetchTasks()" />
-    <TaskList ref="taskList" />
+    <AddTask @taskAdded="refreshTasks" />
+    <TaskList ref="taskListRef" />
   </main>
 </template>
 
