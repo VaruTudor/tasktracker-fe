@@ -21,13 +21,13 @@ const refreshTasks = () => {
 
 <style>
 main {
-  max-width: 500px;
+  max-width: 450px;
   margin: 0 auto;
-  padding: 1rem;
-  height: 100vh;
+  padding: 2rem 1rem;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 h1 {

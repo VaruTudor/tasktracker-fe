@@ -125,6 +125,23 @@ defineExpose({
 </template>
 
 <style scoped>
+:root {
+  --ios-background: #1C1C1E;
+  --ios-container: #2C2C2E;
+  --ios-text-primary: #FFFFFF;
+  --ios-text-secondary: #A1A1AA;
+  --ios-blue: #007AFF;
+  --ios-red: #FF3B30;
+  --ios-green: #30D158;
+  --ios-grey: #636366;
+}
+
+body {
+  background-color: var(--ios-background);
+  color: var(--ios-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", sans-serif;
+}
+
 .container {
   width: 100%;
   max-width: 500px;
@@ -140,7 +157,7 @@ defineExpose({
   overflow-y: auto;
   padding: 0.75rem;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--ios-container);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -154,7 +171,7 @@ defineExpose({
   align-items: center;
   padding: 16px;
   margin: 0.75rem 0;
-  background: #2C2C2E;
+  background: var(--ios-container);
   border-radius: 16px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in-out;
@@ -174,13 +191,13 @@ defineExpose({
   margin: 0;
   font-size: 1rem;
   font-weight: 500;
-  color: #FFFFFF;
+  color: var(--ios-text-primary);
 }
 
 .task-text p {
   margin: 0.25rem 0 0;
   font-size: 0.9rem;
-  color: rgba(235, 235, 245, 0.6);
+  color: var(--ios-text-secondary);
 }
 
 .completed h3,
@@ -214,7 +231,7 @@ defineExpose({
 }
 
 .ios-checkbox input:checked ~ .checkmark {
-  background: #007AFF;
+  background: var(--ios-blue);
 }
 
 .checkmark:after {
@@ -234,35 +251,39 @@ defineExpose({
   display: block;
 }
 
-.delete-btn {
-  background: #FF3B30;
+.delete-btn, .edit-btn, .save-btn, .cancel-btn {
   color: white;
   border: none;
-  padding: 12px 20px;
-  border-radius: 12px;
+  padding: 12px 24px;
+  border-radius: 9999px;
   font-size: 0.9rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease-in-out;
 }
 
-.delete-btn:hover {
-  background: #E63229;
+.delete-btn {
+  background: var(--ios-red);
 }
 
 .edit-btn {
-  background: #0A84FF;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 12px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-right: 8px;
+  background: var(--ios-blue);
 }
 
-.edit-btn:hover {
-  background: #0766d9;
+.save-btn {
+  background: var(--ios-green);
+}
+
+.cancel-btn {
+  background: var(--ios-grey);
+}
+
+.delete-btn:hover, .edit-btn:hover, .save-btn:hover, .cancel-btn:hover {
+  transform: scale(1.03);
+}
+
+.delete-btn:active, .edit-btn:active, .save-btn:active, .cancel-btn:active {
+  transform: scale(0.97);
 }
 
 .action-buttons {
@@ -302,28 +323,6 @@ defineExpose({
 .edit-buttons {
   display: flex;
   gap: 8px;
-}
-
-.save-btn {
-  background: #30D158;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 12px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-.cancel-btn {
-  background: #8E8E93;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 12px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
 }
 
 /* Custom scrollbar */
