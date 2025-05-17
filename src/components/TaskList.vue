@@ -36,6 +36,10 @@ const toggleComplete = async (task) => {
 }
 
 onMounted(fetchTasks)
+
+defineExpose({
+  fetchTasks
+})
 </script>
 
 <template>
