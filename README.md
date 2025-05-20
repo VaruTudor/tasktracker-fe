@@ -3,8 +3,6 @@
 
 A sleek and modern task management application built with Vue.js, featuring iOS-inspired design principles and smooth animations.
 
-![Task Manager Preview](https://replit-docs-images.util.repl.co/images/teamsForEducation/multiplayer-task-manager.png)
-
 ## Features
 
 - ✨ Modern iOS-inspired dark mode interface
