@@ -1,29 +1,67 @@
-# VueJS-with-Vite
 
-This template should help get you started developing with Vue 3 in Vite.
+# iOS-Style Task Manager
 
-## Recommended IDE Setup
+A sleek and modern task management application built with Vue.js, featuring iOS-inspired design principles and smooth animations.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+![Task Manager Preview](https://replit-docs-images.util.repl.co/images/teamsForEducation/multiplayer-task-manager.png)
 
-## Customize configuration
+## Features
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- ✨ Modern iOS-inspired dark mode interface
+- 📱 Responsive design that works on all devices
+- ✅ Create, edit, and delete tasks
+- 🎨 Smooth animations and transitions
+- 💾 Real-time updates
+- 🎯 Task completion tracking
 
-## Project Setup
+## Prerequisites
 
-```sh
+- Node.js (included in Replit)
+- NPM (included in Replit)
+
+## Quick Start on Replit
+
+1. Fork this Repl
+2. Click the "Run" button
+3. The development server will start automatically
+
+## Manual Setup
+
+If you're starting the project manually in Replit:
+
+```bash
+# Install dependencies
 npm install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
+# Start development server
 npm run dev
 ```
 
-### Compile and Minify for Production
+The app will be available at the URL shown in your Repl's preview window.
 
-```sh
-npm run build
+## Project Structure
+
 ```
+src/
+├── components/         # Vue components
+│   ├── AddTask.vue    # Task creation form
+│   └── TaskList.vue   # Task list display
+├── assets/            # Static assets
+│   ├── base.css      # Base styles
+│   └── main.css      # Main stylesheet
+└── App.vue           # Root component
+```
+
+## Tech Stack
+
+- Vue.js 3 - Progressive JavaScript Framework
+- Vite - Next Generation Frontend Tooling
+- CSS3 - Modern styling with animations
+
+## Contributing
+
+Feel free to fork this project and make your own changes. Pull requests are welcome!
+
+## License
+
+MIT
